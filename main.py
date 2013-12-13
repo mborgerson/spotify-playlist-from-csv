@@ -212,18 +212,13 @@ class App(object):
         # Log In
         print 'Logging In...'
 
-        try:
-            # Login using Spotify and wait for login to finish
-            self._sp.callme(self._try_login, username, password, relogin)
-            self.login_finished.wait()
+        # Login using Spotify and wait for login to finish
+        self._sp.callme(self._try_login, username, password, relogin)
+        self.login_finished.wait()
 
-            # Check for errors
-            if self.login_error != spotify.LibError.OK:
-                print 'Error logging in: ' + self.login_error
-                return False
-
-        except spotify.LibError as e:
-            print 'An error occured: ' + e
+        # Check for errors
+        if self.login_error != spotify.LibError.OK:
+            print 'Error logging in: ' + self.login_error
             return False
 
         print 'Logged In!'
