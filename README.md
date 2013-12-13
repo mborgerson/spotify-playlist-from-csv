@@ -23,4 +23,4 @@ platforms, however.
 
 License
 =======
-This project is licensed under GPL v2.
+This project is licensed under GPL v3.
